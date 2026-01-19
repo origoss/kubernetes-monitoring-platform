@@ -12,3 +12,12 @@ cd cluster
 ```sh
 ./cluster.sh stop
 ```
+## Platform Management
+```sh
+cd platform
+```
+### Argo CD Deployment
+```sh
+cd argocd
+./argocd.sh
+```
