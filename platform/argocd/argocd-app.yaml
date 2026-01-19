@@ -6,7 +6,7 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: 'https://github.com/origoss/go-server-argocd.git'
+    repoURL: 'https://github.com/origoss/kubernetes-monitoring-platform.git'
     targetRevision: 'HEAD'
     path: platform/argocd
     directory:
