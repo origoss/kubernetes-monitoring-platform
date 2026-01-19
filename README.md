@@ -6,9 +6,9 @@ cd cluster
 ```
 ### Start Cluster
 ```sh
-.cluster.sh start
+./cluster.sh start
 ```
 ### Stop Cluster
 ```sh
-.cluster.sh stop
+./cluster.sh stop
 ```
