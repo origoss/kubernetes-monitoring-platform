@@ -1,0 +1,29 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: mimir
+  namespace: monitoring
+spec:
+  project: default
+  sources:
+    - repoURL: https://grafana.github.io/helm-charts
+      chart: mimir-distributed
+      targetRevision: 6.0.5
+      helm:
+        releaseName: mimir
+        valueFiles:
+          - $values/platform/mimir/values.yaml
+    - repoURL: 'https://github.com/origoss/kubernetes-monitoring-platform.git'
+      targetRevision: 'feature/mimir'
+      ref: values
+
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: monitoring
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
+      - ServerSideApply=true
