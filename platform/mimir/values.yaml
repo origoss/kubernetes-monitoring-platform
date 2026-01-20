@@ -23,6 +23,7 @@ mimir:
         region: us-east-1
         insecure: true
         access_key_id: ${AWS_ACCESS_KEY_ID}
+        endpoint: s3.amazonaws.com
         secret_access_key: ${AWS_SECRET_ACCESS_KEY}
     alertmanager_storage:
       backend: s3
@@ -31,6 +32,7 @@ mimir:
         region: us-east-1
         insecure: true
         access_key_id: ${AWS_ACCESS_KEY_ID}
+        endpoint: s3.amazonaws.com
         secret_access_key: ${AWS_SECRET_ACCESS_KEY}
     ruler_storage:
       backend: s3
@@ -39,4 +41,5 @@ mimir:
         region: us-east-1
         insecure: true
         access_key_id: ${AWS_ACCESS_KEY_ID}
+        endpoint: s3.amazonaws.com
         secret_access_key: ${AWS_SECRET_ACCESS_KEY}
