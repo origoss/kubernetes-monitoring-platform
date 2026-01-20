@@ -7,7 +7,7 @@ spec:
   project: default
   source:
     repoURL: 'https://github.com/origoss/kubernetes-monitoring-platform.git'
-    targetRevision: 'HEAD'
+    targetRevision: 'feature/grafana'
     path: platform/argocd
     directory:
       recurse: true
