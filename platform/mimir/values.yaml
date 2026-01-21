@@ -1,0 +1,48 @@
+global:
+  extraEnvFrom:
+    - secretRef:
+        name: mimir-s3-creds
+    - configMapRef:
+        name: mimir-s3-bucket-name
+  podAnnotations:
+    bucketSecretVersion: "0"
+
+minio:
+  enabled: false
+
+buckets:
+  createBucketsJob:
+    enabled: false
+
+mimir:
+  structuredConfig:
+    blocks_storage:
+      backend: s3
+      storage_prefix: blocks
+      s3:
+        bucket_name: ${BUCKET_NAME}
+        region: eu-central-1
+        insecure: true
+        access_key_id: ${AWS_ACCESS_KEY_ID}
+        endpoint: s3.amazonaws.com
+        secret_access_key: ${AWS_SECRET_ACCESS_KEY}
+    alertmanager_storage:
+      backend: s3
+      storage_prefix: alertmanager
+      s3:
+        bucket_name: ${BUCKET_NAME}
+        region: eu-central-1
+        insecure: true
+        access_key_id: ${AWS_ACCESS_KEY_ID}
+        endpoint: s3.amazonaws.com
+        secret_access_key: ${AWS_SECRET_ACCESS_KEY}
+    ruler_storage:
+      backend: s3
+      storage_prefix: ruler
+      s3:
+        bucket_name: ${BUCKET_NAME}
+        region: eu-central-1
+        insecure: true
+        access_key_id: ${AWS_ACCESS_KEY_ID}
+        endpoint: s3.amazonaws.com
+        secret_access_key: ${AWS_SECRET_ACCESS_KEY}

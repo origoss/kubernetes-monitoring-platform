@@ -7,8 +7,8 @@ spec:
   project: default
   source:
     repoURL: 'https://github.com/origoss/kubernetes-monitoring-platform.git'
-    targetRevision: 'HEAD'
-    path: platform/argocd
+    targetRevision: 'feature/mimir'
+    path: platform
     directory:
       recurse: true
   destination:
