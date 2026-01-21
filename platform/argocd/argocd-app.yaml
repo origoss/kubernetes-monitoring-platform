@@ -7,7 +7,7 @@ spec:
   project: default
   source:
     repoURL: 'https://github.com/origoss/kubernetes-monitoring-platform.git'
-    targetRevision: 'feature/mimir'
+    targetRevision: 'feature/alloy'
     path: platform
     directory:
       recurse: true
