@@ -12,7 +12,7 @@ spec:
       helm:
         releaseName: alloy
         valueFiles:
-          - $values/platform/grafana/values.yaml
+          - $values/platform/alloy/values.yaml
     - repoURL: https://github.com/origoss/kubernetes-monitoring-platform.git
       targetRevision: feature/alloy
       ref: values
