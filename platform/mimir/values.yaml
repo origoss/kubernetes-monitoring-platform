@@ -18,6 +18,7 @@ mimir:
   structuredConfig:
     blocks_storage:
       backend: s3
+      storage_prefix: blocks
       s3:
         bucket_name: ${BUCKET_NAME}
         region: eu-central-1
@@ -25,9 +26,9 @@ mimir:
         access_key_id: ${AWS_ACCESS_KEY_ID}
         endpoint: s3.amazonaws.com
         secret_access_key: ${AWS_SECRET_ACCESS_KEY}
-        storage_prefix: blocks
     alertmanager_storage:
       backend: s3
+      storage_prefix: alertmanager
       s3:
         bucket_name: ${BUCKET_NAME}
         region: eu-central-1
@@ -35,9 +36,9 @@ mimir:
         access_key_id: ${AWS_ACCESS_KEY_ID}
         endpoint: s3.amazonaws.com
         secret_access_key: ${AWS_SECRET_ACCESS_KEY}
-        storage_prefix: alertmanager
     ruler_storage:
       backend: s3
+      storage_prefix: ruler_storage
       s3:
         bucket_name: ${BUCKET_NAME}
         region: eu-central-1
@@ -45,4 +46,3 @@ mimir:
         access_key_id: ${AWS_ACCESS_KEY_ID}
         endpoint: s3.amazonaws.com
         secret_access_key: ${AWS_SECRET_ACCESS_KEY}
-        storage_prefix: ruler_storage
