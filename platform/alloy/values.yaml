@@ -1,0 +1,71 @@
+extraVolumes:
+  - name: proc
+    hostPath:
+      path: /proc
+  - name: sys
+    hostPath:
+      path: /sys
+  - name: root
+    hostPath:
+      path: /
+
+extraVolumeMounts:
+  - name: proc
+    mountPath: /host/proc
+    readOnly: true
+  - name: sys
+    mountPath: /host/sys
+    readOnly: true
+  - name: root
+    mountPath: /host/root
+    readOnly: true
+
+alloy:
+  configMap:
+    create: true
+    content: |
+      // Configure the node_exporter integration to collect system metrics
+      prometheus.exporter.unix "integrations_node_exporter" {
+        // Disable unnecessary collectors to reduce overhead
+        disable_collectors = ["ipvs", "btrfs", "infiniband", "xfs", "zfs"]
+        enable_collectors = ["meminfo"]
+
+        filesystem {
+          // Exclude filesystem types that aren't relevant for monitoring
+          fs_types_exclude     = "^(autofs|binfmt_misc|bpf|cgroup2?|configfs|debugfs|devpts|devtmpfs|tmpfs|fusectl|hugetlbfs|iso9660|mqueue|nsfs|overlay|proc|procfs|pstore|rpc_pipefs|securityfs|selinuxfs|squashfs|sysfs|tracefs)$"
+          // Exclude mount points that aren't relevant for monitoring
+          mount_points_exclude = "^/(dev|proc|run/credentials/.+|sys|var/lib/docker/.+)($|/)"
+          // Timeout for filesystem operations
+          mount_timeout        = "5s"
+        }
+
+        netclass {
+          // Ignore virtual and container network interfaces
+          ignored_devices = "^(veth.*|cali.*|[a-f0-9]{15})$"
+        }
+
+        netdev {
+          // Exclude virtual and container network interfaces from device metrics
+          device_exclude = "^(veth.*|cali.*|[a-f0-9]{15})$"
+        }
+
+
+      }
+
+      // Define how to scrape metrics from the node_exporter
+      prometheus.scrape "integrations_node_exporter" {
+      scrape_interval = "15s"
+        // Use the targets with labels from the discovery.relabel component
+        targets    = discovery.relabel.integrations_node_exporter.output
+        // Send the scraped metrics to the relabeling component
+        forward_to = [prometheus.remote_write.local.receiver]
+      }
+
+
+      // Define where to send the metrics for storage
+      prometheus.remote_write "mimir" {
+        endpoint {
+          // Send metrics to a locally running Prometheus instance
+          url = "http://mimir-gateway.monitoring.svc:80/api/v1/push"
+        }
+      }
