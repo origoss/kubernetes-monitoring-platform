@@ -33,10 +33,8 @@ alloy:
       // Define how to scrape metrics from the node_exporter
       prometheus.scrape "integrations_node_exporter" {
       scrape_interval = "15s"
-        // Use the targets with labels from the discovery.relabel component
-        targets    = discovery.relabel.integrations_node_exporter.output
-        // Send the scraped metrics to the relabeling component
-        forward_to = [prometheus.remote_write.local.receiver]
+        targets    = prometheus.exporter.unix.integrations_node_exporter.targets
+        forward_to = [prometheus.remote_write.mimir.receiver]
       }
 
 
