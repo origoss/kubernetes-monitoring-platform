@@ -1,25 +1,3 @@
-extraVolumes:
-  - name: proc
-    hostPath:
-      path: /proc
-  - name: sys
-    hostPath:
-      path: /sys
-  - name: root
-    hostPath:
-      path: /
-
-extraVolumeMounts:
-  - name: proc
-    mountPath: /host/proc
-    readOnly: true
-  - name: sys
-    mountPath: /host/sys
-    readOnly: true
-  - name: root
-    mountPath: /host/root
-    readOnly: true
-
 alloy:
   configMap:
     create: true
