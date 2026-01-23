@@ -21,6 +21,11 @@ cd platform
 cd argocd
 ./argocd.sh
 ```
+### Grafana Deployment
+```sh
+cd grafana-config
+./create-configmaps.sh
+```
 ### Mimir Deployment
 ```sh
 cd mimir
