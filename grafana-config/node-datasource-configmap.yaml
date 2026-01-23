@@ -5,27 +5,17 @@ metadata:
   labels:
     grafana_datasource: "1"
 data:
-  node-dashboard.json: |
-    {
-      "id": 1,
-      "uid": "afaxsugr444jka",
-      "orgId": 1,
-      "name": "prometheus",
-      "type": "prometheus",
-      "typeLogoUrl": "public/plugins/prometheus/img/prometheus_logo.svg",
-      "access": "proxy",
-      "url": "http://test",
-      "user": "",
-      "database": "",
-      "basicAuth": false,
-      "basicAuthUser": "",
-      "withCredentials": false,
-      "isDefault": true,
-      "jsonData": {
-        "pdcInjected": false
-      },
-      "secureJsonFields": {},
-      "version": 3,
-      "readOnly": false,
-      "apiVersion": ""
-    }
+  mimir-datasource.yaml: |
+    apiVersion: 1
+    datasources:
+      - name: mimir
+        type: prometheus
+        access: proxy
+        url: http://mimir-gateway.monitoring.svc:80/prometheus
+        isDefault: true
+        uid: bfb0va2ojn2m8b
+        editable: true
+        basicAuth: false
+        withCredentials: false
+        jsonData: {}
+        secureJsonData: {}
