@@ -32,7 +32,7 @@ data:
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "ffav77722jsaob"
+            "uid": "bfb0va2ojn2m8b"
           },
           "fieldConfig": {
             "defaults": {
@@ -117,10 +117,14 @@ data:
                 "type": "prometheus",
                 "uid": "ffav77722jsaob"
               },
+              "editorMode": "builder",
+              "expr": "node_memory_MemFree_bytes",
+              "legendFormat": "__auto",
+              "range": true,
               "refId": "A"
             }
           ],
-          "title": "New panel",
+          "title": "Free memory",
           "type": "timeseries"
         }
       ],
