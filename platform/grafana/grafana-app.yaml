@@ -1,24 +1,24 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: mimir
+  name: grafana
   namespace: argocd
 spec:
   project: default
   sources:
     - repoURL: https://grafana.github.io/helm-charts
-      chart: mimir-distributed
-      targetRevision: 6.0.5
+      chart: grafana
+      targetRevision: 10.4.0
       helm:
-        releaseName: mimir
+        releaseName: grafana
         valueFiles:
-          - $values/platform/mimir/values.yaml
+          - $values/platform/grafana/values.yaml
     - repoURL: 'https://github.com/origoss/kubernetes-monitoring-platform.git'
       targetRevision: 'feature/grafana'
       ref: values
 
   destination:
-    server: https://kubernetes.default.svc
+    server: 'https://kubernetes.default.svc'
     namespace: monitoring
   syncPolicy:
     automated:
@@ -26,4 +26,3 @@ spec:
       selfHeal: true
     syncOptions:
       - CreateNamespace=true
-      - ServerSideApply=true
