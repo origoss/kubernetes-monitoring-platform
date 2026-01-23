@@ -3,4 +3,4 @@ if ! command -v kubectl >/dev/null 2>&1; then
   exit 1
 fi
 
-kubectl create configmap grafana-dashboard --from-file=node-dashboard.json --namespace monitoring --overrides='{"metadata":{"label":"grafana_dashboard": "1"}}'
+kubectl apply -f node-dashboard-configmap.yaml -f node-datasource-configmap.yaml
