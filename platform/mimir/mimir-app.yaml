@@ -16,6 +16,7 @@ spec:
     - repoURL: 'https://github.com/origoss/kubernetes-monitoring-platform.git'
       targetRevision: 'feature/grafana'
       ref: values
+      path: platform/mimir
 
   destination:
     server: https://kubernetes.default.svc
