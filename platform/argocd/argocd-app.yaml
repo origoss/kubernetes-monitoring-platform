@@ -7,7 +7,7 @@ spec:
   project: default
   source:
     repoURL: 'https://github.com/origoss/kubernetes-monitoring-platform.git'
-    targetRevision: 'feature/sealed-secrets'
+    targetRevision: 'main'
     path: platform
     directory:
       recurse: true
