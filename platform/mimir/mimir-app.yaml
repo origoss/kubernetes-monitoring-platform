@@ -14,7 +14,7 @@ spec:
         valueFiles:
           - $values/platform/mimir/values.yaml
     - repoURL: 'https://github.com/origoss/kubernetes-monitoring-platform.git'
-      targetRevision: 'feature/grafana'
+      targetRevision: 'feature/sealed-secrets'
       ref: values
       path: platform/mimir
 

@@ -7,7 +7,7 @@ spec:
   project: default
   source:
     repoURL: 'https://github.com/origoss/kubernetes-monitoring-platform.git'
-    targetRevision: 'feature/grafana'
+    targetRevision: 'feature/sealed-secrets'
     path: platform
     directory:
       recurse: true
