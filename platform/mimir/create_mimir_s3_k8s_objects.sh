@@ -23,11 +23,6 @@ SECRET_ACCESS_KEY="$3"
 kubectl create secret generic "$SECRET_NAME" \
   --from-literal=AWS_ACCESS_KEY_ID="$ACCESS_KEY_ID" \
   --from-literal=AWS_SECRET_ACCESS_KEY="$SECRET_ACCESS_KEY" \
-  -n "$NAMESPACE" \
-  --dry-run=client -o yaml | kubectl apply -f -
-
-
-kubectl create configmap "$CONFIGMAP_NAME" \
   --from-literal=BUCKET_NAME="$BUCKET_NAME" \
   -n "$NAMESPACE" \
   --dry-run=client -o yaml | kubectl apply -f -
