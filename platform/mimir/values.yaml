@@ -2,8 +2,6 @@ global:
   extraEnvFrom:
     - secretRef:
         name: mimir-s3-creds
-    - configMapRef:
-        name: mimir-s3-bucket-name
   podAnnotations:
     bucketSecretVersion: "0"
 
