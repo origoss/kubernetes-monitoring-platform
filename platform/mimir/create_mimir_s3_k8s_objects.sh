@@ -2,7 +2,6 @@
 
 SECRET_NAME="mimir-s3-creds"
 NAMESPACE="monitoring"
-CONFIGMAP_NAME="mimir-s3-bucket-name"
 
 if ! command -v kubectl >/dev/null 2>&1; then
   echo "Error: kubectl is not installed"
@@ -25,7 +24,7 @@ kubectl create secret generic "$SECRET_NAME" \
   --from-literal=AWS_SECRET_ACCESS_KEY="$SECRET_ACCESS_KEY" \
   --from-literal=BUCKET_NAME="$BUCKET_NAME" \
   -n "$NAMESPACE" \
-  --dry-run=client -o yaml | kubectl apply -f -
+  --dry-run=client -o yaml | kubeseal --format=yaml > sealed-mimir-s3-creds.yaml --controller-namespace "$NAMESPACE" --controller-name sealed-secrets
 
 
 if [ $? -eq 0 ]; then
