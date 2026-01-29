@@ -1,4 +1,6 @@
 alloy:
+  rbac:
+    create: true
   configMap:
     create: true
     content: |
@@ -37,6 +39,13 @@ alloy:
         forward_to = [prometheus.remote_write.mimir.receiver]
       }
 
+      prometheus.operator.servicemonitors "primary" {
+      forward_to = [prometheus.remote_write.mimir.receiver]
+
+        selector {
+          match_labels = { "release" = "alloy" }
+        }
+      }
 
       // Define where to send the metrics for storage
       prometheus.remote_write "mimir" {
