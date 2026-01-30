@@ -3,6 +3,9 @@ alloy:
     create: true
   rbac:
     create: true
+  alloy:
+  serviceMonitor:
+    enabled: true
   configMap:
     create: true
     content: |
