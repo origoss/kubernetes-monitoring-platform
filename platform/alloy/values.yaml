@@ -42,9 +42,9 @@ alloy:
       prometheus.operator.servicemonitors "primary" {
       forward_to = [prometheus.remote_write.mimir.receiver]
 
-        selector {
-          match_labels = { "release" = "alloy" }
-        }
+        //selector {
+        //  match_labels = { "mimir_scrape" = "enabled" }
+        //}
       }
 
       // Define where to send the metrics for storage
