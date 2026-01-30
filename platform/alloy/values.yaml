@@ -1,4 +1,6 @@
 alloy:
+  crds:
+    create: true
   rbac:
     create: true
   configMap:
