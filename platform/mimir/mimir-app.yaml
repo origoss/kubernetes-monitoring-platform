@@ -16,8 +16,8 @@ spec:
     - repoURL: 'https://github.com/origoss/kubernetes-monitoring-platform.git'
       targetRevision: 'feature/alloy'
       ref: values
-    - repoURL: https://github.com/prometheus-community/helm-charts.git
-      path: charts/prometheus-operator-crds
+    - repoURL: https://github.com/prometheus-community/helm-charts
+      chart: prometheus-operator-crds
       targetRevision: 26.0.0
 
   destination:
