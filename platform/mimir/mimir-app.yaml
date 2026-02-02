@@ -18,7 +18,7 @@ spec:
       ref: values
     - repoURL: https://github.com/prometheus-community/helm-charts.git
       path: charts/prometheus-operator-crds
-      targetRevision: "26.0.0"
+      targetRevision: 26.0.0
 
   destination:
     server: https://kubernetes.default.svc
