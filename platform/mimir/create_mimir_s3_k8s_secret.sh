@@ -1,6 +1,6 @@
 #!/bin/sh
 
-SECRET_NAME="mimir-s3-creds"
+SECRET_NAME="aws-s3-credentials"
 NAMESPACE="monitoring"
 
 if ! command -v kubectl >/dev/null 2>&1; then
@@ -24,7 +24,7 @@ kubectl create secret generic "$SECRET_NAME" \
   --from-literal=AWS_SECRET_ACCESS_KEY="$SECRET_ACCESS_KEY" \
   --from-literal=BUCKET_NAME="$BUCKET_NAME" \
   -n "$NAMESPACE" \
-  --dry-run=client -o yaml | kubeseal --format=yaml > sealed-mimir-s3-creds.yaml --controller-namespace "$NAMESPACE" --controller-name sealed-secrets
+  --dry-run=client -o yaml | kubeseal --format=yaml > sealed-aws-s3-credentials.yaml --controller-namespace "$NAMESPACE" --controller-name sealed-secrets
 
 
 if [ $? -eq 0 ]; then
