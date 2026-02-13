@@ -1,7 +1,7 @@
 global:
   extraEnvFrom:
     - secretRef:
-        name: mimir-s3-creds
+        name: aws-s3-credentials
   podAnnotations:
     bucketSecretVersion: "0"
 
@@ -15,7 +15,7 @@ mimir:
   structuredConfig:
     blocks_storage:
       backend: s3
-      storage_prefix: blocks
+      storage_prefix: mimir/blocks
       s3:
         bucket_name: ${BUCKET_NAME}
         region: eu-central-1
@@ -25,7 +25,7 @@ mimir:
         secret_access_key: ${AWS_SECRET_ACCESS_KEY}
     alertmanager_storage:
       backend: s3
-      storage_prefix: alertmanager
+      storage_prefix: mimir/alertmanager
       s3:
         bucket_name: ${BUCKET_NAME}
         region: eu-central-1
@@ -35,7 +35,7 @@ mimir:
         secret_access_key: ${AWS_SECRET_ACCESS_KEY}
     ruler_storage:
       backend: s3
-      storage_prefix: ruler
+      storage_prefix: mimir/ruler
       s3:
         bucket_name: ${BUCKET_NAME}
         region: eu-central-1
