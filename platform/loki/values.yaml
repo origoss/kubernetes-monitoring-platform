@@ -9,6 +9,15 @@ loki:
   extraArgs:
     - -config.expand-env=true
   structuredConfig:
+    schema_config:
+        configs:
+          - from: "2024-01-01"
+            store: tsdb
+            object_store: s3
+            schema: v13
+            index:
+              prefix: index_
+              period: 24h
     common:
       path_prefix: loki/
       storage:
