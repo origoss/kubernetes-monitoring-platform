@@ -46,3 +46,58 @@ mimir:
 metaMonitoring:
   serviceMonitor:
     enabled: true
+
+# ============================================================
+# Centralized resource configuration for all Mimir components
+# ============================================================
+
+mimirCommonResources: &mimirCommonResources
+  requests:
+    cpu: 100m
+    memory: 100Mi
+  limits:
+    cpu: 200m
+    memory: 200Mi
+
+# =========================
+# Core Mimir Components
+# =========================
+
+alertmanager:
+  resources: *mimirCommonResources
+
+ingester:
+  resources: *mimirCommonResources
+
+distributor:
+  resources: *mimirCommonResources
+
+overrides_exporter:
+  resources: *mimirCommonResources
+
+ruler:
+  resources: *mimirCommonResources
+
+ruler_querier:
+  resources: *mimirCommonResources
+
+ruler_querier_frontend:
+  resources: *mimirCommonResources
+
+ruler_querier_scheduler:
+  resources: *mimirCommonResources
+
+querier:
+  resources: *mimirCommonResources
+
+querier_frontend:
+  resources: *mimirCommonResources
+
+querier_scheduler:
+  resources: *mimirCommonResources
+
+store_gateway:
+  resources: *mimirCommonResources
+
+compactor:
+  resources: *mimirCommonResources

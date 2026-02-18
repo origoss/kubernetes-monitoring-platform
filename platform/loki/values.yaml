@@ -1,3 +1,16 @@
+# ============================================================
+# Single common resource for all Loki components
+# ============================================================
+lokiCommonResources: &lokiCommonResources
+  requests:
+    cpu: 300m
+    memory: 512Mi
+  limits:
+    cpu: 600m
+    memory: 1Gi
+# ============================================================
+
+
 deploymentMode: Distributed
 
 global:
@@ -42,8 +55,100 @@ loki:
 
 
 minio:
+  resources: *lokiCommonResources
   enabled: false
 
 monitoring:
+  selfMonitoring:
+    grafanaAgent:
+      resources: *lokiCommonResources
   serviceMonitor:
     enabled: true
+
+
+
+
+# ============================================================
+# Apply the same resources to all components
+# ============================================================
+
+lokiCanary:
+  resources: *lokiCommonResources
+
+adminApi:
+  resources: *lokiCommonResources
+
+gateway:
+  resources: *lokiCommonResources
+
+enterpriseGateway:
+  resources: *lokiCommonResources
+
+singleBinary:
+  resources: *lokiCommonResources
+
+write:
+  resources: *lokiCommonResources
+
+read:
+  resources: *lokiCommonResources
+
+backend:
+  resources: *lokiCommonResources
+
+ingester:
+  resources: *lokiCommonResources
+
+distributor:
+  resources: *lokiCommonResources
+
+querier:
+  resources: *lokiCommonResources
+
+queryFrontend:
+  resources: *lokiCommonResources
+
+queryScheduler:
+  resources: *lokiCommonResources
+
+indexGateway:
+  resources: *lokiCommonResources
+
+compactor:
+  resources: *lokiCommonResources
+
+bloomGateway:
+  resources: *lokiCommonResources
+
+bloomPlanner:
+  resources: *lokiCommonResources
+
+bloomBuilder:
+  resources: *lokiCommonResources
+
+patternIngester:
+  resources: *lokiCommonResources
+
+ruler:
+  resources: *lokiCommonResources
+
+overridesExporter:
+  resources: *lokiCommonResources
+
+memcachedExporter:
+  resources: *lokiCommonResources
+
+resultsCache:
+  resources: *lokiCommonResources
+
+chunksCache:
+  resources: *lokiCommonResources
+  l2:
+    resources: *lokiCommonResources
+
+sidecar:
+  resources: *lokiCommonResources
+
+
+tableManager:
+  resources: *lokiCommonResources
