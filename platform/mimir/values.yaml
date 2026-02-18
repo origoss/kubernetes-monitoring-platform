@@ -101,3 +101,6 @@ store_gateway:
 
 compactor:
   resources: *mimirCommonResources
+
+kafka:
+  resources: *mimirCommonResources
