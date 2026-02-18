@@ -3,11 +3,11 @@
 # ============================================================
 lokiCommonResources: &lokiCommonResources
   requests:
-    cpu: 300m
-    memory: 512Mi
+    cpu: 100m
+    memory: 100Mi
   limits:
-    cpu: 600m
-    memory: 1Gi
+    cpu: 200m
+    memory: 200Mi
 # ============================================================
 
 
