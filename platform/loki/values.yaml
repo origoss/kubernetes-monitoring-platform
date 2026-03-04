@@ -102,8 +102,8 @@ ingester:
 distributor:
   resources: *lokiCommonResources
 
-querier:
-  resources: *lokiCommonResources
+# querier:
+#   resources: *lokiCommonResources
 
 queryFrontend:
   resources: *lokiCommonResources
