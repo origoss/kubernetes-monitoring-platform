@@ -77,83 +77,83 @@ monitoring:
 # Apply the same resources to all components
 # ============================================================
 
-lokiCanary:
-  resources: *lokiCommonResources
-
-adminApi:
-  resources: *lokiCommonResources
-
-gateway:
-  resources: *lokiCommonResources
-
-enterpriseGateway:
-  resources: *lokiCommonResources
-
-singleBinary:
-  resources: *lokiCommonResources
-
-write:
-  resources: *lokiCommonResources
-
-read:
-  resources: *lokiCommonResources
-
-backend:
-  resources: *lokiCommonResources
-
-ingester:
-  resources: *lokiCommonResources
-
-distributor:
-  resources: *lokiCommonResources
-
-# querier:
+# lokiCanary:
 #   resources: *lokiCommonResources
 
-queryFrontend:
-  resources: *lokiCommonResources
+# adminApi:
+#   resources: *lokiCommonResources
 
-queryScheduler:
-  resources: *lokiCommonResources
+# gateway:
+#   resources: *lokiCommonResources
 
-indexGateway:
-  resources: *lokiCommonResources
+# enterpriseGateway:
+#   resources: *lokiCommonResources
 
-compactor:
-  resources: *lokiCommonResources
+# singleBinary:
+#   resources: *lokiCommonResources
 
-bloomGateway:
-  resources: *lokiCommonResources
+# write:
+#   resources: *lokiCommonResources
 
-bloomPlanner:
-  resources: *lokiCommonResources
+# read:
+#   resources: *lokiCommonResources
 
-bloomBuilder:
-  resources: *lokiCommonResources
+# backend:
+#   resources: *lokiCommonResources
 
-patternIngester:
-  resources: *lokiCommonResources
+# ingester:
+#   resources: *lokiCommonResources
 
-ruler:
-  resources: *lokiCommonResources
+# distributor:
+#   resources: *lokiCommonResources
 
-overridesExporter:
-  resources: *lokiCommonResources
+# # querier:
+# #   resources: *lokiCommonResources
 
-memcachedExporter:
-  resources: *lokiCommonResources
+# queryFrontend:
+#   resources: *lokiCommonResources
 
-resultsCache:
-  resources: *lokiCommonResources
+# queryScheduler:
+#   resources: *lokiCommonResources
 
-chunksCache:
-  resources: *lokiCommonResources
-  l2:
-    resources: *lokiCommonResources
+# indexGateway:
+#   resources: *lokiCommonResources
 
-sidecar:
-  resources: *lokiCommonResources
+# compactor:
+#   resources: *lokiCommonResources
+
+# bloomGateway:
+#   resources: *lokiCommonResources
+
+# bloomPlanner:
+#   resources: *lokiCommonResources
+
+# bloomBuilder:
+#   resources: *lokiCommonResources
+
+# patternIngester:
+#   resources: *lokiCommonResources
+
+# ruler:
+#   resources: *lokiCommonResources
+
+# overridesExporter:
+#   resources: *lokiCommonResources
+
+# memcachedExporter:
+#   resources: *lokiCommonResources
+
+# resultsCache:
+#   resources: *lokiCommonResources
+
+# chunksCache:
+#   resources: *lokiCommonResources
+#   l2:
+#     resources: *lokiCommonResources
+
+# sidecar:
+#   resources: *lokiCommonResources
 
 
-tableManager:
-  resources: *lokiCommonResources
+# tableManager:
+#   resources: *lokiCommonResources
