@@ -52,6 +52,8 @@ loki:
       chunks: ${BUCKET_NAME}
       ruler: ${BUCKET_NAME}
       admin: ${BUCKET_NAME}
+  querier:
+    max_concurrent: 2
 
 querier:
   enabled: true
