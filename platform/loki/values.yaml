@@ -55,8 +55,6 @@ loki:
   querier:
     max_concurrent: 2
 
-querier:
-  enabled: true
 
 
 minio:
