@@ -24,7 +24,7 @@ kubectl create secret generic "$SECRET_NAME" \
   --from-literal=AWS_SECRET_ACCESS_KEY="$SECRET_ACCESS_KEY" \
   --from-literal=BUCKET_NAME="$BUCKET_NAME" \
   -n "$NAMESPACE" \
-  --dry-run=client -o yaml | kubeseal --format=yaml > ../../aws/sealed-aws-s3-credentials.yaml --controller-namespace "$NAMESPACE" --controller-name sealed-secrets
+  --dry-run=client -o yaml | kubeseal --format=yaml > sealed-aws-s3-credentials.yaml --controller-namespace "$NAMESPACE" --controller-name sealed-secrets
 
 
 if [ $? -eq 0 ]; then
