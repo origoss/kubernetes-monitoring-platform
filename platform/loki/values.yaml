@@ -53,6 +53,9 @@ loki:
       ruler: ${BUCKET_NAME}
       admin: ${BUCKET_NAME}
 
+querier:
+  enabled: true
+
 
 minio:
   resources: *lokiCommonResources
