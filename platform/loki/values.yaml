@@ -55,6 +55,8 @@ loki:
   querier:
     max_concurrent: 2
 
+querier:
+  replicas: 1
 
 
 minio:
